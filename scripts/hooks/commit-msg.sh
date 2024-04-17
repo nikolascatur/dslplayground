@@ -14,7 +14,7 @@ echo "Running commit message check..."
 COMMIT_FILE=$1
 COMMIT_MSG=$(cat ${COMMIT_FILE})
 
-COMMIT_MSG_REGEX="^(revert: )?(feat|fix|BREAKING CHANGE|docs|style|refactor|perf|test|chore) {1,50}";
+COMMIT_MSG_REGEX="^(revert: )?(feat|fix|BREAKING CHANGE|docs|style|refactor|perf|test|chore)(\(.+\))?: .{1,50}";
 if [[ ! ${COMMIT_MSG} =~ ${COMMIT_MSG_REGEX} ]]; then
     echo -e "\nPlease change your commit message to the format below 👍: "
     echo -e "${GREEN}[PREFIX]: something else ${NO_COLOR}(ex docs: update file release notes)"
