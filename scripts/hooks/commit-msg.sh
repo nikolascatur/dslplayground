@@ -21,6 +21,7 @@ if [[ ! ${COMMIT_MSG} =~ ${COMMIT_MSG_REGEX} ]]; then
     echo -e "\n${NO_COLOR}List prefix commit message: "
     echo -e "${YELLOW}feat      ${NO_COLOR}→ Add a new feature"
     echo -e "${YELLOW}fix       ${NO_COLOR}→ Fix a bug (equivalent to a ${BOLD}PATCH${NORMAL} in ${BLUE}Semantic Versioning${NO_COLOR})."
+    echo -e "${RED}BREAKING CHANGE       ${NO_COLOR}→ the type/scope, introduces a ${RED}breaking API change${NORMAL} (correlating with ${RED}MAJOR${NORMAL} in ${BLUE}Semantic Versioning${NO_COLOR})."
     echo -e "${YELLOW}docs      ${NO_COLOR}→ Documentation changes."
     echo -e "${YELLOW}style     ${NO_COLOR}→ Code style change (semicolon, indentation...)."
     echo -e "${YELLOW}refactor  ${NO_COLOR}→ Refactor code without changing public API."
