@@ -7,6 +7,9 @@ plugins {
 }
 
 val clean = tasks.register<Delete>("clean")
+val assemble = tasks.register("assemble") {
+    println("running assemble")
+}
 
 val copyGitHooks = tasks.register<Copy>("copyGitHooks") {
     println("Copies the git hooks from ${rootDir}/script/hooks to the .git folder.")

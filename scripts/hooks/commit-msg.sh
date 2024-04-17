@@ -14,7 +14,7 @@ echo "Running commit message check..."
 COMMIT_FILE=$1
 COMMIT_MSG=$(cat ${COMMIT_FILE})
 
-COMMIT_MSG_REGEX="^(revert: )?(feat|fix|docs|style|refactor|perf|test|chore)(\(.+\))?: .{1,50}";
+COMMIT_MSG_REGEX="^(revert: )?(feat|fix|BREAKING CHANGE|docs|style|refactor|perf|test|chore){1,50}";
 if [[ ! ${COMMIT_MSG} =~ ${COMMIT_MSG_REGEX} ]]; then
     echo -e "\nPlease change your commit message to the format below 👍: "
     echo -e "${GREEN}[PREFIX]: something else ${NO_COLOR}(ex docs: update file release notes)"
@@ -56,7 +56,7 @@ fi
 sleep 2s
 ASPELL=$(which aspell)
 DICTIONARY_FILENAME="dictionary-commit-message.txt"
-DICTIONARY_SOURCE="$PWD/quality/spelling/$DICTIONARY_FILENAME"
+DICTIONARY_SOURCE="$PWD/scripts/spelling/$DICTIONARY_FILENAME"
 if [[ $? -eq 0 ]]; then
     WORDS=$(${ASPELL} --personal=${DICTIONARY_SOURCE} list <<< ${COMMIT_MSG} | sort -u)
 
